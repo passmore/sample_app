@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+gem 'pg', '~> 0.17'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.14.0'
 end
 
@@ -52,6 +52,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :production do
-  gem 'pg', '~> 0.17'
   gem 'rails_12factor', '0.0.2'
 end
