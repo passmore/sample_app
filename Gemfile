@@ -3,6 +3,8 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'pg', '~> 0.17'
+# Use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.1'
 
 group :development, :test do
   gem 'rspec-rails', '2.14.0'
@@ -44,9 +46,6 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
