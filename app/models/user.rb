@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  paginates_per 20
 
   before_create :create_remember_token
   before_save { email.downcase! }
