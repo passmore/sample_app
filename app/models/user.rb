@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   before_create :create_remember_token
   before_save { email.downcase! }
+  after_destroy :ensure_an_admin_remains
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
@@ -23,5 +24,11 @@ class User < ActiveRecord::Base
 
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
+    end
+
+    def ensure_an_admin_remains
+      if User.count.zero?
+        raise "Can't delete last user!"
+      end
     end
 end
